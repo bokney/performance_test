@@ -33,13 +33,19 @@ def function_introduction(func):
         lambda var: f'>>> running function {var}' ]
     print(pleasant_introductions[randrange(4)](func))
 
-def its_function_time(func):
-    get_insightful_ponder()
-    function_introduction(func)
+def when_is_now():
     now = datetime.now()
     today = date.today()
     print(f'>>> at {now.strftime("%H:%M:%S")} on {today.strftime("%d-%m-%y")}')
+
+def run_and_analyze_function(func):
     start = time.perf_counter()
     func()
     end = time.perf_counter()
     print(f'start time:\t{start}\nend time:\t{end}\ntotal time:\t{end - start}')
+
+def its_function_time(func):
+    get_insightful_ponder()
+    function_introduction(func)
+    when_is_now()
+    run_and_analyze_function(func)
